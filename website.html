@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ஈசன் அருள் – Spiritual Tamil Channel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #D4A843;
+      --gold2: #f0c96a;
+      --saffron: #E8620A;
+      --deep-blue: #050d1a;
+      --mid-blue: #0a1628;
+      --card-bg: #0d1e35;
+      --card-border: #1a3050;
+      --white: #f0eadc;
+      --muted: #7a9ab5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--deep-blue);
+      color: var(--white);
+      font-family: 'Noto Sans Tamil', sans-serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(100,150,255,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(212,168,67,0.05) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      padding: 16px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(5,13,26,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,168,67,0.2);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.05rem; letter-spacing: 2px;
+      color: var(--gold); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; transition: color 0.2s;
+      font-family: 'Cinzel', serif;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 60px 60px; gap: 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; right: 5%; top: 50%;
+      transform: translateY(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(100,150,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-left { position: relative; z-index: 2; }
+    .hero-om {
+      font-size: 2.8rem; margin-bottom: 14px; display: block; line-height: 1;
+      background: linear-gradient(135deg, var(--gold), var(--saffron));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-tag::before {
+      content: ''; display: block; width: 36px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .hero-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      line-height: 1.1; letter-spacing: 1px; margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff 0%, var(--gold2) 60%, var(--saffron) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle-en {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem; letter-spacing: 4px; color: var(--gold);
+      margin-bottom: 22px; opacity: 0.8; text-transform: uppercase;
+    }
+    .hero-desc {
+      font-size: 0.93rem; color: var(--muted);
+      line-height: 1.95; margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-desc .highlight { color: var(--gold2); font-weight: 600; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: #0a0a0a; padding: 13px 28px; border: none; cursor: pointer;
+      font-family: 'Noto Sans Tamil', sans-serif;
+      font-size: 0.88rem; font-weight: 700;
+      text-decoration: none; display: inline-block;
+      transition: opacity 0.2s, transform 0.15s; border-radius: 2px;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--gold);
+      padding: 12px 26px; border: 1px solid rgba(212,168,67,0.4); cursor: pointer;
+      font-family: 'Noto Sans Tamil', sans-serif;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none; display: inline-block;
+      transition: border-color 0.2s, color 0.2s; border-radius: 2px;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold2); }
+    .hero-stats { display: flex; gap: 36px; align-items: center; }
+    .stat-num {
+      font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; line-height: 1;
+      background: linear-gradient(135deg, var(--gold2), var(--saffron));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 1px; margin-top: 4px; }
+    .stat-divider { width: 1px; height: 40px; background: rgba(212,168,67,0.2); }
+
+    /* Hero Image */
+    .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; }
+    .hero-img-wrap { position: relative; width: 380px; max-width: 100%; }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute; inset: -3px;
+      background: conic-gradient(from 0deg, var(--gold), var(--saffron), transparent, var(--gold));
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      z-index: -1; opacity: 0.5;
+      animation: spin 10s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-img {
+      width: 100%;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      display: block;
+      filter: drop-shadow(0 0 50px rgba(80,120,255,0.35));
+    }
+    .hero-img-placeholder {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 50%; background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+    }
+
+    /* SECTION BASE */
+    section { padding: 90px 60px; position: relative; }
+    .section-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.66rem; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      letter-spacing: 1px; margin-bottom: 44px; line-height: 1.2;
+      background: linear-gradient(135deg, var(--white) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,67,0.3) 40%, rgba(232,98,10,0.3) 60%, transparent);
+      margin: 0 60px;
+    }
+
+    /* CONTENT TYPES */
+    #content { background: var(--mid-blue); }
+    .content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+    .content-pill {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      padding: 16px 18px; border-radius: 4px;
+      display: flex; align-items: center; gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .content-pill:hover { border-color: rgba(212,168,67,0.35); transform: translateY(-3px); }
+    .content-pill-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .content-pill-text { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .content-pill-text strong { color: var(--white); font-size: 0.85rem; display: block; }
+
+    /* VIDEOS */
+    #videos { background: var(--deep-blue); }
+    .videos-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 34px; flex-wrap: wrap; gap: 14px;
+    }
+    .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+    .video-card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      overflow: hidden; border-radius: 4px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; cursor: pointer;
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,168,67,0.4);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .video-thumb { width: 100%; aspect-ratio: 16/9; position: relative; overflow: hidden; background: #0a1628; }
+    .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .video-card:hover .video-thumb img { transform: scale(1.05); }
+    .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(5,13,26,0.45); opacity: 0; transition: opacity 0.2s;
+    }
+    .video-card:hover .play-overlay { opacity: 1; }
+    .play-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; padding-left: 3px; color: #0a0a0a; font-weight: bold;
+    }
+    .video-info { padding: 14px 16px; }
+    .video-title { font-size: 0.88rem; font-weight: 600; line-height: 1.5; margin-bottom: 8px; color: var(--white); }
+    .video-meta { font-size: 0.74rem; color: var(--muted); display: flex; gap: 12px; align-items: center; }
+    .video-date { color: var(--gold); font-weight: 600; }
+
+    .add-video-wrap {
+      margin-top: 44px; background: var(--card-bg);
+      border: 1px dashed rgba(212,168,67,0.2); padding: 32px; border-radius: 4px;
+    }
+    .add-video-heading {
+      font-family: 'Cinzel', serif; font-size: 0.95rem;
+      letter-spacing: 2px; color: var(--gold); margin-bottom: 22px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 0.68rem; letter-spacing: 1.5px; color: var(--muted);
+      text-transform: uppercase; font-family: 'Cinzel', serif;
+    }
+    .form-group input, .form-group textarea {
+      background: var(--mid-blue); border: 1px solid var(--card-border);
+      color: var(--white); padding: 11px 14px;
+      font-family: 'Noto Sans Tamil', sans-serif; font-size: 0.88rem;
+      outline: none; transition: border-color 0.2s; border-radius: 2px; width: 100%;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: rgba(212,168,67,0.5); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    /* ABOUT */
+    #about { background: var(--mid-blue); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+    .about-img-box {
+      position: relative; width: 100%; aspect-ratio: 3/4;
+      overflow: hidden; border-radius: 4px; border: 1px solid var(--card-border);
+    }
+    .about-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .about-img-box::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 40%; background: linear-gradient(to top, var(--mid-blue), transparent);
+    }
+    .about-gold-bar {
+      position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--gold), var(--saffron), transparent);
+    }
+    .about-quote {
+      border-left: 2px solid var(--gold); padding: 12px 20px; margin-bottom: 24px;
+      background: rgba(212,168,67,0.04); font-style: italic;
+      color: var(--gold2); font-size: 0.9rem; line-height: 1.9;
+    }
+    .about-desc { color: var(--muted); line-height: 2; font-size: 0.9rem; margin-bottom: 24px; }
+    .about-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .pill {
+      padding: 5px 14px; border-radius: 20px;
+      border: 1px solid rgba(212,168,67,0.22);
+      font-size: 0.74rem; color: var(--muted);
+    }
+
+    /* SOCIAL */
+    #social { background: var(--deep-blue); }
+    .social-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+    .social-card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      padding: 26px 22px; border-radius: 4px; text-decoration: none; display: block;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .social-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--saffron), var(--gold));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .social-card:hover { border-color: rgba(212,168,67,0.3); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .social-card:hover::before { transform: scaleX(1); }
+    .social-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .social-name { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 1px; color: var(--white); margin-bottom: 4px; }
+    .social-handle { font-size: 0.76rem; color: var(--gold); margin-bottom: 8px; }
+    .social-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
+
+    /* CONTACT */
+    #contact { background: var(--mid-blue); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+    .contact-quote {
+      font-family: 'Cinzel Decorative', serif; font-size: 1.3rem; line-height: 1.7;
+      background: linear-gradient(135deg, var(--gold2), var(--saffron));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;
+    }
+    .contact-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.9; margin-bottom: 28px; }
+    .contact-info-item { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .contact-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(212,168,67,0.08); border: 1px solid rgba(212,168,67,0.18);
+      display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .contact-text { font-size: 0.82rem; color: var(--muted); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 60px; border-top: 1px solid rgba(212,168,67,0.12);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 0.9rem; letter-spacing: 1px; color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: var(--muted); }
+
+    /* TOAST */
+    #toast {
+      position: fixed; bottom: 28px; right: 28px;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: #0a0a0a; padding: 13px 22px; font-size: 0.88rem; font-weight: 700;
+      transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 999; border-radius: 2px;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-om         { animation: fadeUp 0.6s ease both 0.1s; }
+    .hero-tag        { animation: fadeUp 0.6s ease both 0.2s; }
+    .hero-title      { animation: fadeUp 0.6s ease both 0.3s; }
+    .hero-subtitle-en{ animation: fadeUp 0.6s ease both 0.4s; }
+    .hero-desc       { animation: fadeUp 0.6s ease both 0.5s; }
+    .hero-btns       { animation: fadeUp 0.6s ease both 0.6s; }
+    .hero-stats      { animation: fadeUp 0.6s ease both 0.7s; }
+    .hero-right      { animation: fadeUp 0.8s ease both 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 100px 28px 60px; }
+      .hero-right { order: -1; }
+      .hero-img-wrap { width: 240px; margin: 0 auto; }
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      section { padding: 70px 24px; }
+      .divider { margin: 0 24px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">🕉️ ஈசன் அருள் Official</a>
+  <ul class="nav-links">
+    <li><a href="#content">உள்ளடக்கம்</a></li>
+    <li><a href="#videos">வீடியோக்கள்</a></li>
+    <li><a href="#about">என்னைப் பற்றி</a></li>
+    <li><a href="#social">சமூக வலை</a></li>
+    <li><a href="#contact">தொடர்பு</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-om">🕉️</span>
+    <div class="hero-tag">Spiritual Tamil YouTube Channel</div>
+    <h1 class="hero-title">ஈசன் அருள்</h1>
+    <div class="hero-subtitle-en">EESAN ARUL — GOD'S GRACE</div>
+    <p class="hero-desc">
+      <span class="highlight">இறைவன் அருள் அதிசயங்களில் இல்லை…</span><br>
+      நாம் செய்யும் நன்மைகளில் தான் வெளிப்படும்!<br><br>
+      கோவில் தரிசனம், திருவிழா வீடியோக்கள், ஆன்மீக கதைகள் மற்றும் மனிதநேயம் — இதுவே எங்கள் பாதை.
+    </p>
+    <div class="hero-btns">
+      <a href="https://www.youtube.com/@eesanarulofficial" target="_blank" class="btn-primary">▶ Channel பாருங்கள்</a>
+      <a href="#videos" class="btn-outline">புதிய வீடியோக்கள்</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">57.1K</div>
+        <div class="stat-label">சப்ஸ்கிரைபர்கள்</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">209+</div>
+        <div class="stat-label">வீடியோக்கள்</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">Salem</div>
+        <div class="stat-label">Tamil Nadu</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img class="hero-img" id="heroImg"
+           src="https://i.imgur.com/placeholder.jpg"
+           alt="Lord Shiva – ஈசன் அருள்" />
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTENT TYPES -->
+<section id="content">
+  <div class="section-tag">What We Share</div>
+  <h2 class="section-title">இந்த சேனலில் நீங்கள் காண்பது</h2>
+  <div class="content-grid">
+    <div class="content-pill"><span class="content-pill-icon">🛕</span><div class="content-pill-text"><strong>கோவில் தரிசனம்</strong>Temple Visit Vlogs</div></div>
+    <div class="content-pill"><span class="content-pill-icon">🎉</span><div class="content-pill-text"><strong>திருவிழா வீடியோக்கள்</strong>Festival Videos Tamil</div></div>
+    <div class="content-pill"><span class="content-pill-icon">📖</span><div class="content-pill-text"><strong>ஆன்மீக கதைகள்</strong>Spiritual Stories Tamil</div></div>
+    <div class="content-pill"><span class="content-pill-icon">🙏</span><div class="content-pill-text"><strong>God Videos Tamil</strong>Devotional Content</div></div>
+    <div class="content-pill"><span class="content-pill-icon">❤️</span><div class="content-pill-text"><strong>மனிதநேயம்</strong>Humanity & Kindness</div></div>
+    <div class="content-pill"><span class="content-pill-icon">✨</span><div class="content-pill-text"><strong>அதிசய சம்பவங்கள்</strong>Miracles & Real Life</div></div>
+    <div class="content-pill"><span class="content-pill-icon">🎬</span><div class="content-pill-text"><strong>God Edits & Shorts</strong>Devotional Reels</div></div>
+    <div class="content-pill"><span class="content-pill-icon">🧘</span><div class="content-pill-text"><strong>யோகா & தியானம்</strong>Yoga & Meditation</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="videos-header">
+    <div>
+      <div class="section-tag">Latest Uploads</div>
+      <h2 class="section-title" style="margin-bottom:0">புதிய வீடியோக்கள்</h2>
+    </div>
+    <a href="https://www.youtube.com/@eesanarulofficial" target="_blank" class="btn-outline">அனைத்தும் காண →</a>
+  </div>
+  <div class="videos-grid" id="videosGrid"></div>
+  <div class="add-video-wrap">
+    <div class="add-video-heading">🕉️ புதிய வீடியோ சேர்க்கவும்</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>YouTube Video ID</label>
+        <input type="text" id="vidId" placeholder="உதா: dQw4w9WgXcQ" />
+      </div>
+      <div class="form-group">
+        <label>வீடியோ தலைப்பு</label>
+        <input type="text" id="vidTitle" placeholder="தலைப்பை எழுதுங்கள்" />
+      </div>
+      <div class="form-group">
+        <label>தேதி</label>
+        <input type="date" id="vidDate" />
+      </div>
+      <div class="form-group">
+        <label>பார்வைகள்</label>
+        <input type="text" id="vidViews" placeholder="உதா: 1.2K" />
+      </div>
+    </div>
+    <button class="btn-primary" onclick="addVideo()">வீடியோ சேர்க்கவும் →</button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-box" id="aboutImgBox">
+      <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:7rem;background:var(--card-bg);">🕉️</div>
+      <div class="about-gold-bar"></div>
+    </div>
+    <div>
+      <div class="section-tag">About The Channel</div>
+      <h2 class="section-title">என்னைப் பற்றி</h2>
+      <div class="about-quote">
+        🕉️ இறைவன் அருள் அதிசயங்களில் இல்லை…<br>
+        நாம் செய்யும் நன்மைகளில் தான் வெளிப்படும்!
+      </div>
+      <p class="about-desc">
+        வணக்கம்! நான் <strong style="color:var(--gold2)">ஈசன் அருள்</strong>.<br><br>
+        இந்த சேனல் ஒரு Spiritual + Motivation + Humanity Tamil Channel. கோவில் தரிசனம், திருவிழாக்கள், ஆன்மீக கதைகள், மனிதநேயம் — இவற்றை உங்களுடன் பகிர்ந்து கொள்வதே என் நோக்கம்.<br><br>
+        தினமும் Positive thinking, Spiritual growth மற்றும் Peaceful life motivation உணர்வை உங்களுக்கு தருகிறேன். 🙏
+      </p>
+      <div class="about-pills">
+        <span class="pill">🛕 Temple Vlogs</span>
+        <span class="pill">🙏 Spiritual</span>
+        <span class="pill">❤️ Humanity</span>
+        <span class="pill">🧘 Meditation</span>
+        <span class="pill">📍 Salem, TN</span>
+        <span class="pill">57.1K Subscribers</span>
+      </div>
+      <a href="https://www.youtube.com/@eesanarulofficial" target="_blank" class="btn-primary">🔔 Subscribe செய்யுங்கள்</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOCIAL -->
+<section id="social">
+  <div class="section-tag">Connect With Me</div>
+  <h2 class="section-title">சமூக வலைதளங்கள்</h2>
+  <div class="social-grid">
+    <a href="https://www.youtube.com/@eesanarulofficial" target="_blank" class="social-card">
+      <span class="social-icon">▶️</span>
+      <div class="social-name">YouTube</div>
+      <div class="social-handle">@eesanarulofficial</div>
+      <div class="social-desc">57.1K subscribers · 209 videos. வீடியோக்களை பாருங்கள் & சப்ஸ்கிரைப் செய்யுங்கள்!</div>
+    </a>
+    <a href="#" class="social-card">
+      <span class="social-icon">📸</span>
+      <div class="social-name">Instagram</div>
+      <div class="social-handle">@eesanarulofficial</div>
+      <div class="social-desc">தினசரி ஆன்மீக posts & reels பாருங்கள்</div>
+    </a>
+    <a href="#" class="social-card">
+      <span class="social-icon">📘</span>
+      <div class="social-name">Facebook</div>
+      <div class="social-handle">Eesan Arul Official</div>
+      <div class="social-desc">பக்கத்தை Like செய்து updates பெறுங்கள்</div>
+    </a>
+    <a href="#" class="social-card">
+      <span class="social-icon">💬</span>
+      <div class="social-name">WhatsApp Channel</div>
+      <div class="social-handle">Eesan Arul</div>
+      <div class="social-desc">நேரடி ஆன்மீக புதுப்பிப்புகள் பெறுங்கள்</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-tag">Get In Touch</div>
+      <div class="contact-quote">நன்மை வழி வாழ்வோம்!</div>
+      <p class="contact-desc">விளம்பரங்கள், ஒத்துழைப்பு (collaboration) அல்லது வேறு எந்த விஷயத்திற்கும் என்னை தொடர்பு கொள்ளலாம். 🙏</p>
+      <div class="contact-info-item">
+        <div class="contact-icon">📧</div>
+        <div class="contact-text">eesanarulofficial@gmail.com</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">▶️</div>
+        <div class="contact-text">youtube.com/@eesanarulofficial</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-text">Salem, Tamil Nadu, India</div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="sendContact(event)">
+      <div class="form-group">
+        <label>உங்கள் பெயர்</label>
+        <input type="text" placeholder="பெயரை உள்ளிடுங்கள்" required />
+      </div>
+      <div class="form-group">
+        <label>மின்னஞ்சல்</label>
+        <input type="email" placeholder="உங்கள் மின்னஞ்சல்" required />
+      </div>
+      <div class="form-group">
+        <label>செய்தி</label>
+        <textarea placeholder="உங்கள் செய்தியை இங்கே எழுதுங்கள்..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary">🙏 செய்தி அனுப்பவும்</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🕉️ ஈசன் அருள் Official</div>
+  <div class="footer-copy">© 2025 Eesan Arul – Spiritual Tamil Channel · நன்மை வழி வாழ்வோம்! 🙏</div>
+</footer>
+
+<div id="toast">✓ சேர்க்கப்பட்டது!</div>
+
+<script>
+  // Load Shiva image from uploaded file via base64 embed
+  (function(){
+    // Try to load the uploaded Shiva image
+    const img = document.getElementById('heroImg');
+    img.src = "1777216797544_ChatGPT_Image_Nov_8__2025__11_45_31_AM.png";
+    img.onerror = function() {
+      // fallback to OM symbol
+      this.parentElement.innerHTML = '<div class="hero-img-placeholder">🕉️</div>';
+    };
+
+    // About section image
+    const box = document.getElementById('aboutImgBox');
+    const aImg = document.createElement('img');
+    aImg.src = "1777216797544_ChatGPT_Image_Nov_8__2025__11_45_31_AM.png";
+    aImg.style.cssText = "width:100%;height:100%;object-fit:cover;object-position:top;";
+    aImg.onerror = function() { /* keep the OM placeholder */ };
+    box.insertBefore(aImg, box.firstChild);
+  })();
+
+  // Default videos matching what's visible in the channel screenshot
+  let videos = [
+    { id: "placeholder1", title: "கஞ்சமலை காலாங்கிநாதர் சித்தர் திருக்கோவில் – சித்த ரகசியம் | சேலம்", date: "2025-04-22", views: "89" },
+    { id: "placeholder2", title: "முருகன் பக்தர்கள் காவடி ஆட்டம் 🔥 | பங்குனி உத்திரம்", date: "2025-04-01", views: "84" },
+    { id: "placeholder3", title: "சேலம், கருங்கல்பட்டி ஸ்ரீ ராமலிங்க சௌடேஸ்வரி அம்மன் கோவில்", date: "2025-03-10", views: "388" },
+  ];
+
+  function renderVideos() {
+    const grid = document.getElementById('videosGrid');
+    grid.innerHTML = videos.map(v => {
+      const isReal = !v.id.startsWith('placeholder');
+      const thumb = isReal
+        ? `<img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg" alt="${v.title}" onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'" />`
+        : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--card-bg);">🛕</div>`;
+      const link = isReal ? `https://youtu.be/${v.id}` : `https://www.youtube.com/@eesanarulofficial`;
+      return `
+      <div class="video-card" onclick="window.open('${link}','_blank')">
+        <div class="video-thumb">
+          ${thumb}
+          <div class="play-overlay"><div class="play-circle">▶</div></div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">${v.title}</div>
+          <div class="video-meta">
+            <span class="video-date">${formatDate(v.date)}</span>
+            <span>👁 ${v.views} பார்வைகள்</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function formatDate(d) {
+    return new Date(d).toLocaleDateString('ta-IN', { year:'numeric', month:'short', day:'numeric' });
+  }
+
+  function addVideo() {
+    const id    = document.getElementById('vidId').value.trim();
+    const title = document.getElementById('vidTitle').value.trim();
+    const date  = document.getElementById('vidDate').value;
+    const views = document.getElementById('vidViews').value.trim() || '0';
+    if (!id || !title || !date) { alert('அனைத்து தகவல்களையும் நிரப்பவும்!'); return; }
+    videos.unshift({ id, title, date, views });
+    renderVideos();
+    ['vidId','vidTitle','vidDate','vidViews'].forEach(x => document.getElementById(x).value = '');
+    showToast('✓ வீடியோ சேர்க்கப்பட்டது!');
+  }
+
+  function sendContact(e) {
+    e.preventDefault();
+    showToast('🙏 செய்தி அனுப்பப்பட்டது!');
+    e.target.reset();
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  renderVideos();
+</script>
+</body>
+</html>
